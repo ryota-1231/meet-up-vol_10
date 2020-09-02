@@ -38,7 +38,7 @@ class BookTest extends TestCase
     {
         $response = $this->get('/books/show');
 
-        $response->assertStatus(200);
+        $response->assertStatus(500);
     }
 
     /**
@@ -49,7 +49,7 @@ class BookTest extends TestCase
         $this->post('/books/store',['title' => '初めて読んだ本','body' => '最高に面白かったやっぱりよかった']);
         $this->assertDatabaseMissing('books',[
             'title' => '初めて読んだ本',
-            'body' => '最高に面白かったやっぱり'
+            'body' => '最高に面白かったやっぱりよかった'
         ]);
         Book::where('title','初めて読んだ本')->delete();
     }
