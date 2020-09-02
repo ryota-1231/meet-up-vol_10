@@ -29,8 +29,10 @@ jobs:
     steps:
       - checkout
       # CircleCIに登録した秘密鍵を呼び出す。
-      - add_ssh_keys:
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd my-favarite-books && sudo git pull origin master && docker-compose restart'
+      - add_ssh_keys
+      - run: echo "${USER_NAME}@${HOST_NAME}"
+      - run:
+          ssh ${USER_NAME}@${HOST_NAME} 'cd my-favarite-books && sudo git pull origin master && docker-compose restart'
 
 # テストが成功した場合のみ、deployを実行するようにします。
 workflows:
@@ -39,6 +41,7 @@ workflows:
     jobs:
       - build
       - deploy:
+          context: meet-up
           requires:
             - build
           # masterブランチがpushされた場合のみdeployするようにする。
