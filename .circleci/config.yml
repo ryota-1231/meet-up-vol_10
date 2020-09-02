@@ -30,7 +30,7 @@ jobs:
       - checkout
       # CircleCIに登録した秘密鍵を呼び出す。
       - add_ssh_keys:
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd meet-up-vol_10 && sudo git pull origin master && sudo docker-compose restart'
+      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd meet-up-vol_10 && sudo git pull origin master && docker-compose restart'
 
 # テストが成功した場合のみ、deployを実行するようにします。
 workflows:
