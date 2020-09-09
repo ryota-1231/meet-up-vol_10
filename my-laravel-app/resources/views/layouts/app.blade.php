@@ -17,7 +17,7 @@
                 <div class="menu">
                     <ul>
                         <li><a href="{{ route('register_book') }}">登録ボタン</a></li>
-                        <li><a href="{{ route('show_books')}}">一覧ボタン</a></li>
+                        <li><a href="{{ route('show_books')}}">きすけ</a></li>
                     </ul>                
                 </div>
             </div>
